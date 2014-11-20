@@ -1,7 +1,7 @@
 VDOM
 ====
 
-JavaScript Vitural DOM
+JavaScript Virtual DOM
 
 ## Version 0.1.0
 
