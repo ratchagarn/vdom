@@ -8,19 +8,19 @@ var dom = vdom('div', { className: 'dropdown' })
               vdom('ui', { className: 'dropdown-menu' })
                 .root(
                   vdom('li', { className: 'active' })
-                    .child('a', null, 'List 1' )
+                    .child('a', { href: '#' }, 'List 1')
                 )
                 .root(
                   vdom('li', null)
-                    .child('a', null, 'List 2' )
+                    .child('a', { href: '#' }, 'List 2')
                 )
                 .root(
                   vdom('li', null)
-                    .child('a', null, 'List 3' )
+                    .child('a', { href: '#' }, 'List 3')
                 )
                 .root(
                   vdom('li', null)
-                    .child('a', null, 'List 4' )
+                    .child('a', { href: '#' }, 'List 4')
                 )
             );
 
