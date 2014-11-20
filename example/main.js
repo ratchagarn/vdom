@@ -1,22 +1,7 @@
-VDOM
-====
+(function() {
 
-JavaScript Vitural DOM
+'use strict';
 
-## Version 0.1.0
-
-
-## Change log
-
-
-### 0.0.1
-
-- init project.
-
-
-### Example code
-
-```JavaScript
 var dom = vdom('div', { className: 'dropdown' })
             .child('button', { className: 'btn btn-primary', dataToggle: 'dropdown' }, 'Dropdown')
             .root(
@@ -39,28 +24,14 @@ var dom = vdom('div', { className: 'dropdown' })
                 )
             );
 
-document.body.appendChild( dom.el );
-```
+
+document.body.appendChild(dom.el);
+
+// var $dropdown = $(dom.el);
+
+// $dropdown.on('click', function() {
+//   console.log('test click');
+// }).appendTo($('#test'));
 
 
-### Output
-
-```html
-<div class="dropdown">
-  <button class="btn btn-primary" data-toggle="dropdown">Dropdown</button>
-  <ui class="dropdown-menu">
-    <li class="active">
-      <a>List 1</a>
-    </li>
-    <li>
-      <a>List 2</a>
-    </li>
-    <li>
-      <a>List 3</a>
-    </li>
-    <li>
-      <a>List 4</a>
-    </li>
-  </ui>
-</div>
-```
+}).call(this);
