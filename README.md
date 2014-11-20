@@ -50,16 +50,16 @@ document.body.appendChild( dom.el );
   <button class="btn btn-primary" data-toggle="dropdown">Dropdown</button>
   <ui class="dropdown-menu">
     <li class="active">
-      <a>List 1</a>
+      <a href="#">List 1</a>
     </li>
     <li>
-      <a>List 2</a>
+      <a href="#">List 2</a>
     </li>
     <li>
-      <a>List 3</a>
+      <a href="#">List 3</a>
     </li>
     <li>
-      <a>List 4</a>
+      <a href="#">List 4</a>
     </li>
   </ui>
 </div>
