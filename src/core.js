@@ -2,10 +2,6 @@
 
 'use strict';
 
-var global = this,
-    el_roots = [];
-
-
 /**
  * Transform camel cast to dash
  * ------------------------------------------------------------
@@ -18,6 +14,7 @@ var global = this,
 function camelToDash(str, lowercase) {
   if (lowercase == null) { lowercase = true; }
 
+  // transform camel case
   var output = str.replace(/\W+/g, '-')
               .replace(/([a-z\d])([A-Z])/g, '$1-$2');
 
@@ -40,18 +37,27 @@ function camelToDash(str, lowercase) {
  */
 
 function dom(name, settings, child) {
+  // set default settings
   if (settings == null) { settings = {}; }
+
+  // create element
   var el = document.createElement(name);
+
+  // assign prop
   for (var prop in settings) {
     var val = settings[prop];
+
+    // set avaliable prop
     if ( el.hasOwnProperty(prop) ) {
       el[prop] = val;
     }
+    // set free style prop
     else {
       el.setAttribute( camelToDash(prop), val );
     }
   }
 
+  // set text node
   if (typeof child === 'string') {
     el.appendChild( document.createTextNode(child) );
   }
@@ -76,9 +82,11 @@ var vdom = function(name, settings, text) {
 
 
 /**
+ * VDOM core function
  * ------------------------------------------------------------
- * Core function
- * ------------------------------------------------------------
+ * @name VDOM
+ * @param {*} `Same as dom function`
+ * @return {Object} vdom object
  */
 
 var VDOM = function() {
@@ -105,7 +113,7 @@ VDOM.prototype.root = function(vdomObject) {
  * Append child element
  * ------------------------------------------------------------
  * @name vdom.child
- * @param {*} `Same as core function`
+ * @param {*} `Same as dom function`
  * @return {Object} vdom object
  */
 
@@ -115,14 +123,12 @@ VDOM.prototype.child = function() {
 };
 
 
-
 /**
  * ------------------------------------------------------------
- * Set to window scrope
+ * assign to window scope
  * ------------------------------------------------------------
  */
 
 window.vdom = vdom;
-
 
 }).call(this);
