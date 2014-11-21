@@ -1,6 +1,6 @@
 {
   "name": "vdom",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/ratchagarn/vdom",
   "authors": [
     "Ratchagarn <ratchagarn@gmail.com>"
@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.1"
   }
 }

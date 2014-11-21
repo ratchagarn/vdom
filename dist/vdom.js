@@ -1,5 +1,5 @@
 /*!
- * VDOM version 0.1.0
+ * VDOM version 0.2.0
  * Copyright 2014-Preset
  * Author: Ratchagarn Naewbuntad
  * Licensed under MIT
@@ -96,22 +96,40 @@ var vdom = function(name, settings, text) {
  */
 
 var VDOM = function() {
-  this.el = dom.apply( this, arguments );
+  var node = null;
+  if (typeof arguments[0] === 'object') {
+    node = arguments[0];
+  }
+  else {
+    node = dom.apply(this, arguments);
+  }
+  this.node = node;
   return this;
 };
 
 
 /**
- * Create root element for append new child
+ * Create parent element for append new child
  * ------------------------------------------------------------
- * @name vdom.root
+ * @name vdom.parent
  * @param {Object} vdom object
+ * @param {Boolean} get latest child or not
  * @return {Object} vdom object
  */
 
-VDOM.prototype.root = function(vdomObject) {
-  this.el.appendChild( vdomObject.el );
-  return this;
+VDOM.prototype.parent = function(vdomObject, get_latest_child) {
+  this.node.appendChild(vdomObject.node);
+  if (get_latest_child === true) {
+    var node = vdomObject.node.children;
+    while(node.children) {
+      node = node.children;
+    }
+    return node[0];
+    // return this;
+  }
+  else {
+    return this;
+  }
 };
 
 
@@ -124,7 +142,16 @@ VDOM.prototype.root = function(vdomObject) {
  */
 
 VDOM.prototype.child = function() {
-  this.el.appendChild( dom.apply(this, arguments) );
+  var child = null;
+
+  if (arguments[0].node) {
+    child = arguments[0].node;
+  }
+  else {
+    child = dom.apply(this, arguments);
+  }
+
+  this.node.appendChild(child);
   return this;
 };
 
