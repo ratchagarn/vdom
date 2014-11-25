@@ -3,10 +3,15 @@ VDOM
 
 JavaScript Virtual DOM
 
-## Version 0.2.0
+## Version 0.2.1
 
 
 ## Change log
+
+### 0.2.1
+- Add new method `html`
+- Improvement method `parent` now can return node object
+
 
 ### 0.2.0
 
@@ -23,6 +28,8 @@ JavaScript Virtual DOM
 ### Example usage 1
 
 ```JavaScript
+
+// object style
 var dom = vdom('div', { className: 'dropdown' })
             .child('button', { className: 'btn btn-primary', dataToggle: 'dropdown' }, 'Dropdown')
             .root(
@@ -45,7 +52,28 @@ var dom = vdom('div', { className: 'dropdown' })
                 )
             );
 
-document.body.appendChild(dom.el);
+
+// string style
+var dom = vdom('div', { className: 'dropdown'} )
+            .html(
+              '<button class="btn btn-primary" data-toggle="dropdown">Dropdown</button>' +
+              '<ul class="dropdown-menu">' +
+                '<li class="active"><a href="javascript:;">List 1</a></li>' +
+                '<li><a href="javascript:;">List 2</a></li>' +
+                '<li><a href="javascript:;">List 3</a></li>' +
+                '<li><a href="javascript:;">List 4</a></li>' +
+              '</ul>'
+            );
+
+
+
+// bind event on the fly
+$(dom.node).find('a').on('click', function() {
+  console.log( $(this).text() );
+});
+
+
+document.body.appendChild(dom.node);
 ```
 
 
