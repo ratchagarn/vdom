@@ -119,7 +119,6 @@ VDOM.prototype.parent = function(vdomObject, get_latest_child) {
       node = node.children;
     }
     return node[0];
-    // return this;
   }
   else {
     return this;
@@ -146,6 +145,31 @@ VDOM.prototype.child = function() {
   }
 
   this.node.appendChild(child);
+  return this;
+};
+
+
+/**
+ * Append child element of html string
+ * ------------------------------------------------------------
+ * @name vdom.html
+ * @param {String} String of HTML
+ * @return {Object} vdom object
+ */
+
+VDOM.prototype.html = function(str) {
+  var frag = document.createDocumentFragment(),
+      temp = document.createElement('DIV');
+
+  temp.insertAdjacentHTML('beforeend', str);
+  while (temp.firstChild) {
+    frag.appendChild(temp.firstChild);
+  }
+
+  // nulling out the reference, there is no obvious dispose method
+  temp = null;
+
+  this.node.appendChild(frag);
   return this;
 };
 
