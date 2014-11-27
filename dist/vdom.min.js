@@ -1,5 +1,5 @@
 /*!
- * VDOM version 0.2.0
+ * VDOM version 0.2.2
  * Copyright 2014-Preset
  * Author: Ratchagarn Naewbuntad
  * Licensed under MIT
