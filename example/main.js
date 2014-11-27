@@ -15,36 +15,36 @@ var dom = vdom('div', { className: 'dropdown'} )
             );
 
 
-$(dom.node).find('a').on('click', function() {
-  console.log( $(this).text() );
-});
+// $(dom.node).find('a').on('click', function() {
+//   console.log( $(this).text() );
+// });
 
-document.getElementById('test').appendChild(dom.node);
+// document.getElementById('test').appendChild(dom.node);
 
-// var dom = vdom('div', { className: 'dropdown' })
-//             .child('button', { className: 'btn btn-primary', dataToggle: 'dropdown' }, 'Dropdown')
-//             .parent(
-//               vdom('ui', { className: 'dropdown-menu' })
-//                 .parent(
-//                   vdom('li', { className: 'active' })
-//                     .child('a', { href: '#' }, 'List 1')
-//                 )
-//                 .parent(
-//                   vdom('li', null)
-//                     .child('a', { href: '#' }, 'List 2')
-//                 )
-//                 .parent(
-//                   vdom('li', null)
-//                     .child('a', { href: '#' }, 'List 3')
-//                 )
-//                 .parent(
-//                   vdom('li', null)
-//                     .child('a', { href: '#' }, 'List 4')
-//                 )
-//             );
+var dom = vdom('div', { className: 'dropdown' })
+            .child('button', { className: 'btn btn-primary', dataToggle: 'dropdown' }, 'Dropdown')
+            .parent(
+              vdom('ui', { className: 'dropdown-menu' })
+                .parent(
+                  vdom('li', { className: 'active' })
+                    .child('a', { href: '#' }, 'List 1')
+                )
+                .parent(
+                  vdom('li', null)
+                    .child('a', { href: '#' }, 'List 2')
+                )
+                .parent(
+                  vdom('li', null)
+                    .child('a', { href: '#' }, 'List 3')
+                )
+                .parent(
+                  vdom('li', null)
+                    .child('a', { href: '#' }, 'List 4')
+                )
+            );
 
 
-// document.body.appendChild(dom.node);
+document.body.appendChild(dom.node);
 
 
 
