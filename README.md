@@ -8,6 +8,10 @@ JavaScript Virtual DOM
 
 ## Change log
 
+### 0.2.2
+- Fixed bug for `safari`
+
+
 ### 0.2.1
 - Add new method `html`
 - Improvement method `parent` now can return node object
