@@ -48,7 +48,7 @@ function dom(name, settings, child) {
     var val = settings[prop];
 
     // set avaliable prop
-    if ( el.hasOwnProperty(prop) ) {
+    if ( el[prop] || prop === 'className' ) {
       el[prop] = val;
     }
     // set free style prop
